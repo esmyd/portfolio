@@ -1,0 +1,154 @@
+
+{% extends 'layout.html' %} 
+{% load static %}
+{% block content %} 
+
+    <div class="row layout-top-spacing">
+        <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1 layout-spacing"></div>
+        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-10 layout-spacing">
+            <header class="row faq"> 
+                <div class="col-md-4">
+                    {% if profile.photo.url %} 
+                    <div class="banner-img">
+                        <img src="{{profile.photo.url}}"  width="425" height="425" >
+                    </div>
+                    {% endif %}   
+                    {% if profile.skills.first.skill.url %} 
+                    <h3>Skill</h3>
+                        {% for image in profile.skills.all %}
+                             
+                            <img  class="mt-2" src="{{ image.skill.url }}" width="32" height="32" alt="faq-video-tutorials"> 
+                        {% endfor %} 
+                    {% endif %}   
+                </div>
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-8">
+                    <h1 class="">{{profile.first_name|upper}} <stronge>{{profile.last_name|upper}}</stronge></h1>
+                    {% if profile.profession %}
+                        <h3>{{profile.profession}}</h3>
+                    {% endif %}
+                    {% if profile.descripttion_name %}  
+                        <p class="">{{profile.descripttion_name|safe}}</p>
+                    {% endif %} 
+                    {% if profile.cv_spanish.url %}  
+                        <a class="btn btn-dark" type="button" target="_blank"  href="{{profile.cv_spanish.url}}"><img src="{% static 'icon/spain.png'%}"  alt="flag"> CV Spanish</a>
+                    {% endif %} 
+                    {% if profile.cv_french.url %} 
+                        <a class="btn btn-dark" type="button" target="_blank"  href="{{profile.cv_french.url}}"><img src="{% static 'icon/canada.png'%}"  alt="flag"> CV French</a>
+                    {% endif %} 
+                    {% if profile.cv_english.url %} 
+                        <a class="btn btn-dark" type="button" target="_blank"  href="{{profile.cv_english.url}}"><img src="{% static 'icon/unitedstates.png'%}"  alt="flag"> CV English</a>
+                    {% endif %} 
+                </div>  
+            </header>
+        </div> 
+    </div>   
+   
+    {% if project_app %}
+    <div id="card_9" class="col-lg-12 layout-spacing">
+        <div class="statbox widget box box-shadow">
+            <div class="widget widget-chart-three">
+                <div class="widget-heading">
+                    <div class="">
+                        <h5 class="">Aplicaciones Web</h5>
+                    </div> 
+                </div> 
+            </div> 
+            <div class="widget-content widget-content-area">
+                <div class="row">
+                    {% for app in project_app %} 
+                    <div class="col-lg-4 col-md-4 mb-lg-0 mb-4 mt-4">
+                        <div class="card component-card_9">
+                            <img src="{{app.image.url}}" class="card-img-top" alt="widget-card-2">
+                            <div class="card-body">
+                                <p class="meta-date">{{app.date}}</p>
+                                <h5 class="card-title">{{app.title}}</h5>
+                                <p class="card-text">{{ app.descripttion|truncatechars:150 }}</p>
+                                {% if app.url %}
+                                    <p class="meta-text"><a href="{{app.url}}" target='_blank'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> {{ app.url|truncatechars:20 }} </a></p>
+                                {% endif %}
+                                <div class="meta-info">
+                                    <div class="meta-user"> 
+                                        {% if app.icons.first.icon.url %} 
+                                            {% for image in app.icons.all %} 
+                                            <img   src="{{ image.icon.url }}" width="50" height="50" alt="faq-video-tutorials">
+                                        
+                                            {% endfor %} 
+                                        {% endif %}   
+                                    </div>
+
+                                    <div class="meta-action"> 
+                                        <div class="meta-view">
+                                            <a href="{{app.url}}" target='_blank'>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> 
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div> 
+    {% endif %}
+
+    {% if project_web %}
+    <div id="card_9" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 layout-spacing">
+        <div class="statbox widget box box-shadow">
+            <div class="widget widget-chart-three">
+                <div class="widget-heading">
+                    <div class="">
+                        <h5 class="">Paginas Web</h5>
+                    </div> 
+                </div> 
+            </div> 
+            <div class="widget-content widget-content-area">
+                <div class="row">
+                    {% for project in project_web %} 
+                    <div class="col-lg-4 col-md-6 mb-lg-0 mb-4 mt-4">
+                        <div class="card component-card_9">
+                            <img src="{{project.image.url}}" class="card-img-top" alt="widget-card-2">
+                            <div class="card-body">
+                                {% if project.date %} 
+                                    <p class="meta-date">{{project.date}}</p>
+                                {% endif %}   
+                                <h5 class="card-title">{{project.title}}</h5>
+                                <p class="card-text">{{ project.descripttion|truncatechars:150 }}</p>
+                                {% if project.url %}
+                                    <p class="meta-text"><a href="{{project.url}}" target='_blank'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> {{ project.url|truncatechars:20 }} </a></p>
+                                {% endif %}
+                                <div class="meta-info">
+                                    <div class="meta-user"> 
+                                        {% if project.icons.first.icon.url %} 
+                                            {% for image in project.icons.all %} 
+                                            <img   src="{{ image.icon.url }}" width="32" height="32" alt="faq-video-tutorials">
+                                        
+                                            {% endfor %} 
+                                        {% endif %}   
+                                    </div>
+
+                                    <div class="meta-action"> 
+                                        <div class="meta-view">
+                                            <a href="{{project.url}}" target='_blank'>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> 
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div> 
+    {% endif %}
+
+{% endblock %}
