@@ -14,9 +14,6 @@ from pathlib import Path
 import os
 import dj_database_url
 
-import dj_database_url  
-from whitenoise.django import DjangoWhiteNoise 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -85,15 +82,17 @@ WSGI_APPLICATION = "go.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",  
-#        
-#     }
-# }  
+""" DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",  
+       
+    }
+} """
 
- 
+DATABASES = {
+    'default':  dj_database_url.config( default='postgresql://postgres:postgres@localhost:5432/mysite', conn_max_age=600)
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -131,8 +130,8 @@ if not DEBUG:    # Tell Django to copy statics to the `staticfiles` directory
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     # Turn on WhiteNoise storage backend that takes care of compressing static files
     # and creating unique names for each version so they can safely be cached forever.
-    # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-    STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'    
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    
 MEDIA_ROOT = BASE_DIR / "media"
 
 MEDIA_URL = "/media/"
@@ -141,16 +140,3 @@ MEDIA_URL = "/media/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-# Update database configuration with $DATABASE_URL.
-  
-db_from_env = dj_database_url.config(conn_max_age=500)  
-DATABASES['default'].update(db_from_env)
- 
- 
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (  
-    os.path.join(BASE_DIR, 'static'),
-)
-
-application = DjangoWhiteNoise(application)
