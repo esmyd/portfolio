@@ -1,3 +1,14 @@
-dj_database_url==1.0.0
-Django==4.1.1
-sympy==1.10.1
+asgiref==3.4.1
+black==21.9b0
+click==8.0.3
+Django==3.2.8
+mypy-extensions==0.4.3
+pathspec==0.9.0
+Pillow==8.4.0
+platformdirs==2.4.0
+pytz==2021.3
+regex==2021.10.23
+sqlparse==0.4.2
+tomli==1.2.2
+typing-extensions==3.10.0.2
+# pip install anaconda-navigator=2.3.2 && pip install appdirs && pip install  asgiref && pip install atomicwrites && pip install backports.weakref pip install bkcharts && pip install black && pip install Brotli && pip install brotlipy && pip install certifi && pip install clyent && pip install comtypes && pip install conda && pip install conda-build && pip install conda-verify && pip install constantly && pip install cssselect && pip install cytoolz && pip install daal4py && pip install datashape && pip install distlib && pip install dj-database-url && pip install Django && pip install docopt && pip install et-xmlfile && pip install fonttools && pip install gunicorn && pip install inflection && pip install llvmlite && pip install mccabe &&  pip install mkl-fft  && pip install mkl-service && pip install mpmath && pip install munkres && pip install mypy-extensions && pip install navigator-updater && pip install pathspec && pip install patsy && pip install pep8 && pip install Pillow && pip install pipreqs && pip install platformdirs && pip install protobuf && pip install psycopg2-binary && pip install pyasn1-modules && pip install pycosat && pip install pycurl && pip install PyDispatcher && pip install pyls-spyder && pip install pyreadline && pip install pytest && pip install python-lsp-jsonrpc && pip install python-lsp-server && pip install pytz && pip install pywin32 && pip install PyYAML && pip install queuelib && pip install scikit-learn-intelex && pip install sip && pip install sqlparse && pip install statsmodels && pip install tables && pip install tabulate && pip install TBB && pip install tzdata && pip install unicodecsv && pip install virtualenv && pip install webencodings && pip install whitenoise && pip install win-unicode-console && pip install wincertstore && pip install xlwings && pip install yarg && pip install zict
