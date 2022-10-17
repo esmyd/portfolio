@@ -1,4 +1,4 @@
-from msilib.schema import Icon
+# from msilib.schema import Icon
 from django.contrib import admin
 from .models import Project, Icon, Profile, Skill, Flag
 
