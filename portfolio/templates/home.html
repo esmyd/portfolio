@@ -4,10 +4,10 @@
 {% block content %} 
 
     <div class="row layout-top-spacing">
-        <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-1 layout-spacing"></div>
-        <div class="col-xl-12 col-lg-10 col-md-12 col-sm-12 layout-spacing">
+        <div class="col-xl-1 col-lg-1 col-md-0 col-sm-0  layout-spacing"></div>
+        <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12   layout-spacing">
             <header class="row faq"> 
-                <div class="col-md-12">
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
                     {% if profile.photo.url %} 
                     <div class="banner-img">
                         <img src="{{profile.photo.url}}"  width="425" height="425" >
@@ -21,7 +21,7 @@
                         {% endfor %} 
                     {% endif %}   
                 </div>
-                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 mt-4">
                     <h1 class="">{{profile.first_name|upper}} <stronge>{{profile.last_name|upper}}</stronge></h1>
                     {% if profile.profession %}
                         <h3>{{profile.profession}}</h3>
@@ -56,7 +56,7 @@
             <div class="widget-content widget-content-area">
                 <div class="row">
                     {% for app in project_app %} 
-                    <div class="col-lg-4 col-md-12 mb-lg-0 mb-4 mt-4">
+                    <div class="col-lg-4 col-md-12 col-sm-12 mb-lg-0 mb-4 mt-4">
                         <div class="card component-card_9">
                             <img src="{{app.image.url}}" class="card-img-top" alt="widget-card-2">
                             <div class="card-body">
@@ -97,7 +97,7 @@
     {% endif %}
 
     {% if project_web %}
-    <div id="card_9" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 layout-spacing">
+    <div id="card_9" class="col-xl-12 col-lg-12 col-md-12 col-sm-12   layout-spacing">
         <div class="statbox widget box box-shadow">
             <div class="widget widget-chart-three">
                 <div class="widget-heading">
@@ -109,7 +109,7 @@
             <div class="widget-content widget-content-area">
                 <div class="row">
                     {% for project in project_web %} 
-                    <div class="col-lg-4 col-md-12 mb-lg-0 mb-4 mt-4">
+                    <div class="col-lg-4 col-md-6 mb-lg-0 mb-4 mt-4">
                         <div class="card component-card_9">
                             <img src="{{project.image.url}}" class="card-img-top" alt="widget-card-2">
                             <div class="card-body">
