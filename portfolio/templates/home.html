@@ -59,13 +59,13 @@
                         <p class="">{{profile.descripttion_app|safe}}</p>
                     {% endif %} 
                     {% for app in project_app %} 
-                    <div class="col-lg-4 col-md-12 col-sm-12 mb-lg-0 mb-4 mt-4">
+                    <div class="col-lg-4 col-md-12 col-sm-12 mb-lg-0 mb-2 mt-4">
                         <div class="card component-card_9">
                             <img src="{{app.image.url}}" class="card-img-top" alt="widget-card-2">
                             <div class="card-body">
                                 <p class="meta-date">{{app.date}}</p>
                                 <h5 class="card-title">{{app.title}}</h5>
-                                <p class="card-text">{{ app.descripttion|truncatechars:150 }}</p>
+                                <p class="card-text">{{ app.descripttion|truncatechars:300 }}</p>
                                 {% if app.url %}
                                     <p class="meta-text"><a href="{{app.url}}" target='_blank'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> {{ app.url|truncatechars:20 }} </a></p>
                                 {% endif %}
@@ -73,18 +73,19 @@
                                     <div class="meta-user"> 
                                         {% if app.icons.first.icon.url %} 
                                             {% for image in app.icons.all %} 
-                                            <img   src="{{ image.icon.url }}" width="50" height="50" alt="faq-video-tutorials">
-                                        
+                                            <img   src="{{ image.icon.url }}" width="50" height="50" alt="faq-video-tutorials"> 
                                             {% endfor %} 
                                         {% endif %}   
                                     </div>
 
                                     <div class="meta-action"> 
+                                        {% if app.url %} 
                                         <div class="meta-view">
                                             <a href="{{app.url}}" target='_blank'>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> 
                                             </a>
                                         </div>
+                                        {% endif %}   
                                     </div>
 
                                 </div>
